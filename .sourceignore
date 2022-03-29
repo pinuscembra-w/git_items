@@ -1,0 +1,16 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: GitRepository
+metadata:
+  name: podinfo
+  namespace: default
+spec:
+  interval: 5m
+  url: https://github.com/stefanprodan/podinfo
+  ignore: |
+    # exclude all
+    # /*
+    # include deploy dir
+    # !/deploy
+    # exclude file extensions from deploy dir
+    /git_items/**/*.md
+    /git_items/**/*.txt  
